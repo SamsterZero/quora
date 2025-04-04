@@ -1,0 +1,42 @@
+import Question from "@/components/Question";
+
+const AnswerPage = () => {
+    return (
+        <>
+            <div className="flex gap-2 w-full p-2">
+                <button className="border rounded px-3 py-1 border-neutral-700">For you</button>
+                <button className="border rounded px-3 py-1 border-neutral-700">Request</button>
+                <button className="border rounded px-3 py-1 border-neutral-700">Draft</button>
+            </div>
+            <div
+                className="mx-auto w-full md:px-2 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-center gap-2">
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+                <Question />
+            </div>
+        </>
+    );
+}
+
+export default AnswerPage;

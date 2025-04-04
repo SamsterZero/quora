@@ -1,10 +1,20 @@
+import Post from "@/components/Post";
 
-const Home = () => {
+const HomePage = () => {
     
     return (
-        <div>
-            <h1>Home</h1>
-        </div>
+        <div className="mx-auto sm:w-full lg:max-w-3xl md:p-2 flex flex-col items-center gap-2 py-2">
+			<Post />
+			<Post />
+			<Post />
+			<Post />
+			<Post />
+			<Post />
+			<Post />
+			<Post />
+			<Post />
+			<Post />
+		</div>
     )
 }
-export default Home;
+export default HomePage;

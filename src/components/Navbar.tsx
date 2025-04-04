@@ -4,26 +4,27 @@ const navLinks = {
     home: {
         icon: 'home',
         text: 'Home',
-    },
-    search: {
-        icon: 'search',
-        text: 'Search',
+        link: '/Home',
     },
     discover: {
         icon: 'explore',
         text: 'Discover',
+        link: '/Discover',
     },
     answers: {
         icon: 'rate_review',
-        text: 'Answers',
+        text: 'Answer',
+        link: '/Answer',
     },
     notifications: {
         icon: 'notifications',
         text: 'Notifications',
+        link: '#',
     },
     profile: {
         icon: 'account_circle',
         text: 'Profile',
+        link: '#',
     }
 }
 const Navbar = () => {
@@ -34,21 +35,18 @@ const Navbar = () => {
                 <div className="md:w-full flex items-center md:flex-col gap-4 py-2">
                     <h4 className="text-3xl font-[family-name:var(--font-noticia-text)] text-red-600 font-bold md:hidden md:px-2 xl:inline">Quora</h4>
                     <h4 className="text-3xl font-[family-name:var(--font-noticia-text)] text-red-600 font-bold hidden md:block md:px-2 xl:hidden">Q</h4>
-                    
-                    <div className="hidden md:flex flex-col gap-5 justify-center items-center md:w-full xl:items-start xl:p-4">
 
-                        <a className="justify-self-center flex justify-start items-center gap-2 text-red-600" href="#">
-                            <i className="material-symbols-outlined">home</i>
-                            <span className="hidden xl:block">Home</span>
-                        </a>
-                        <a className="flex justify-start items-center gap-2" href="#">
-                            <i className="material-symbols-outlined">explore</i>
-                            <span className="hidden xl:block">Discover</span>
-                        </a>
-                        <a className="flex justify-start items-center gap-2" href="#">
-                            <i className="material-symbols-outlined">rate_review</i>
-                            <span className="hidden xl:block">Answers</span>
-                        </a>
+                    <div className="hidden md:flex flex-col gap-5 justify-center items-center md:w-full xl:items-start xl:p-4">
+                        {Object.entries(navLinks)
+                            .slice(0, 3)
+                            .map(([key, { icon, text , link}]) => (
+                                <a key={key} className="flex justify-start items-center gap-2"
+                                    href={link}>
+                                    <i className="material-symbols-outlined">{icon}</i>
+                                    <span className="hidden xl:block">{text}</span>
+                                </a>
+                            ))
+                        }
                     </div>
                 </div>
                 <div className="md:w-full flex md:flex-col md:items-center gap-5 py-2">
@@ -56,12 +54,18 @@ const Navbar = () => {
                         Try <span className="font-[family-name:var(--font-noticia-text)] text-bold text-red-600">Quora+</span>
                     </button>
                     <ThemeToggle></ThemeToggle>
-                    <button type="button" className="material-symbols-outlined text-light hidden md:inline">
-                        notifications
-                    </button>
-                    <button type="button" className="material-symbols-outlined text-danger hidden md:inline">
-                        account_circle
-                    </button>
+                    {Object.entries(navLinks)
+                        .slice(3, 5)
+                        .map(([key, { icon }]) => (
+                            <button
+                                key={key}
+                                type="button"
+                                className="material-symbols-outlined text-light hidden md:inline"
+                            >
+                                <i className="material-symbols-outlined">{icon}</i>
+                            </button>
+                        ))
+                    }
                     <button type="button" className="material-symbols-outlined text-danger md:hidden">
                         search
                     </button>
@@ -71,26 +75,18 @@ const Navbar = () => {
             {/* <MobileNavbar></MobileNavbar> */}
             <nav className="bg-red-100 dark:bg-neutral-900 md:hidden">
                 <div className="container flex justify-around items-center gap-5 mx-auto px-3">
-                    <a className="flex justify-start items-center gap-2 p-2 text-red-600 border-b-2 border-red-600" href="#">
-                        <i className="material-symbols-outlined">home</i>
-                        {/* <span>Home</span> */}
-                    </a>
-                    <a className="flex justify-start items-center gap-2 p-2" href="#">
-                        <i className="material-symbols-outlined">explore</i>
-                        {/* <span>Discover</span> */}
-                    </a>
-                    <a className="flex justify-start items-center gap-2 p-2" href="#">
-                        <i className="material-symbols-outlined">rate_review</i>
-                        {/* <span>Answers</span> */}
-                    </a>
-                    <a className="flex justify-start items-center gap-2 p-2" href="#">
-                        <i className="material-symbols-outlined">notifications</i>
-                        {/* <span>Search</span> */}
-                    </a>
-                    <a className="flex justify-start items-center gap-2 p-2" href="#">
-                        <i className="material-symbols-outlined">account_circle</i>
-                        {/* <span>Search</span> */}
-                    </a>
+                    {Object.entries(navLinks)
+                        .map(([key, { icon, link }]) => (
+                            <a
+                                key={key}
+                                className="flex justify-start items-center gap-2 p-2"
+                                href={link}
+                            >
+                                <i className="material-symbols-outlined">{icon}</i>
+                            </a>
+                        ))
+
+                    }
                 </div>
             </nav>
         </>

@@ -1,6 +1,6 @@
 const Post = () => {
     return (
-        <div className="container shadow-lg dark:shadow-none py-3 rounded dark:bg-neutral-900 dark:border dark:border-neutral-800">
+        <div className="shadow-lg dark:shadow-none py-3 md:rounded dark:bg-neutral-900 dark:border dark:border-neutral-800">
                 <div className="flex justify-between items-center gap-2 px-4">
                     <div className="flex items-center gap-2">
                         <button type="button" className="material-symbols-outlined text-danger text-3xl">

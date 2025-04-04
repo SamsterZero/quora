@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import FAB from "@/components/FAB";
 import SpacesRail from "@/components/SpaceSection";
 import { ThemeProvider } from "next-themes";
+import SearchBar from "@/components/SearchBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,7 +46,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <main className="mx-auto max-h-screen w-full flex justify-center overflow-y-auto font-[family-name:var(--font-geist-sans)]">
+            <div className="mx-auto w-full flex flex-col items-center">
+              <SearchBar />
+              {children}
+            </div>
+          </main>
           <FAB />
         </ThemeProvider>
       </body>
