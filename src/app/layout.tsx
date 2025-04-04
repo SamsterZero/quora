@@ -5,6 +5,7 @@ import "./globalicons.css";
 import Navbar from "@/components/Navbar";
 import FAB from "@/components/FAB";
 import SpacesRail from "@/components/SpaceSection";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,12 +36,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${noticiaText.variable} antialiased max-h-screen min-h-screen md:flex`}
+        className={`${geistSans.variable} ${geistMono.variable} ${noticiaText.variable} antialiased max-h-screen min-h-screen md:flex overflow-hidden`}
       >
-        <Navbar />
-        {children}
-        <SpacesRail />
-        <FAB />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <FAB />
+        </ThemeProvider>
       </body>
     </html>
   );

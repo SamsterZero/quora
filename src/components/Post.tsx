@@ -1,6 +1,6 @@
 const Post = () => {
     return (
-        <div className="container border py-3 lg:rounded dark:bg-neutral-900 dark:border-neutral-800">
+        <div className="container shadow-lg dark:shadow-none py-3 rounded dark:bg-neutral-900 dark:border dark:border-neutral-800">
                 <div className="flex justify-between items-center gap-2 px-4">
                     <div className="flex items-center gap-2">
                         <button type="button" className="material-symbols-outlined text-danger text-3xl">
@@ -14,12 +14,13 @@ const Post = () => {
                     <div className="flex items-center gap-2">
                         <button type="button"
                             className="bg-red-600 rounded-full px-5 py-1 text-sm text-white">Follow</button>
-                        <i className="material-symbols-outlined text-red-600">close</i>
+                        <button className="material-symbols-outlined text-red-600">close</button>
                     </div>
                 </div>
                 <div className="py-2 px-4">
                     <h4 className="font-bold">Title</h4>
-                    <p className="line-clamp-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur asperiores
+                    <p className="line-clamp-3">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur asperiores
                         laboriosam harum non repellat corporis quisquam ducimus odit temporibus perferendis labore
                         tenetur ea, nam id debitis sint possimus ullam consectetur. Similique non enim dolorem
                         voluptates sed aliquid maxime numquam fugit facilis voluptas unde nisi modi, reiciendis, eum
@@ -35,7 +36,8 @@ const Post = () => {
                         quibusdam? Perferendis cupiditate maiores minus est reprehenderit, libero debitis. Amet
                         aspernatur, quasi tempore laboriosam assumenda illo est repudiandae quia, eos quod recusandae
                         fuga earum temporibus? Explicabo voluptate, blanditiis eveniet voluptatibus consequuntur dolor
-                        autem voluptas est?</p>
+                        autem voluptas est?
+                        </p>
                 </div>
                 <div className="flex items-center justify-between gap-2 px-4">
                     <div className="flex items-center gap-2">
