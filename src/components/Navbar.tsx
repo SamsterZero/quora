@@ -39,7 +39,7 @@ const Navbar = () => {
                     <div className="hidden md:flex flex-col gap-5 justify-center items-center md:w-full xl:items-start xl:p-4">
                         {Object.entries(navLinks)
                             .slice(0, 3)
-                            .map(([key, { icon, text , link}]) => (
+                            .map(([key, { icon, text, link }]) => (
                                 <a key={key} className="flex justify-start items-center gap-2"
                                     href={link}>
                                     <i className="material-symbols-outlined">{icon}</i>
@@ -56,14 +56,15 @@ const Navbar = () => {
                     <ThemeToggle></ThemeToggle>
                     {Object.entries(navLinks)
                         .slice(3, 5)
-                        .map(([key, { icon }]) => (
-                            <button
+                        .map(([key, { icon, link }]) => (
+                            <a
                                 key={key}
+                                href={link}
                                 type="button"
                                 className="material-symbols-outlined text-light hidden md:inline"
                             >
                                 <i className="material-symbols-outlined">{icon}</i>
-                            </button>
+                            </a>
                         ))
                     }
                     <button type="button" className="material-symbols-outlined text-danger md:hidden">
