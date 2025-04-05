@@ -1,5 +1,9 @@
 import SpaceCard from "@/components/SpaceCard";
 
+export const metadata = {
+    title: "Quora - Discover",
+  };
+
 const DiscoverPage = () => {
     return (
         <div className="w-full p-2">
