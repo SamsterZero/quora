@@ -2,9 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const NotificationsFilter = () => {
+const buttons = [
+    "All", "Stories", "Questons", "Spaces", "People",
+    "Comments", "Upvotes", "Announcements", "Earings",
+    "Subscription", "Email", "Your Content", "Your Profile"
+];
 
-    const [active, setActive] = useState("All");
+type FilterProps = {
+    buttons: string[];
+}
+
+const Filter = (
+    {buttons}: FilterProps
+) => {
+    const [active, setActive] = useState(buttons[0]);
 
     const refs = useRef<Record<string, HTMLButtonElement | null>>({});
 
@@ -31,16 +42,10 @@ const NotificationsFilter = () => {
         return () => el?.removeEventListener("wheel", onWheel);
     }, []);
 
-    const buttons = [
-        "All", "Stories", "Questons", "Spaces", "People",
-        "Comments", "Upvotes", "Announcements", "Earings",
-        "Subscription", "Email", "Your Content", "Your Profile"
-    ];
-
     return (
 
         <div
-            className="flex gap-2 overflow-x-scroll scrollbar-hide scroll-smooth sticky top-0 z-50 bg-white dark:bg-black"
+            className="flex gap-2 overflow-x-scroll scrollbar-hide scroll-smooth touch-x-pan"
             ref={scrollContainerRef}
         >
             {buttons.map((label) => (
@@ -60,4 +65,4 @@ const NotificationsFilter = () => {
     );
 }
 
-export default NotificationsFilter;
+export default Filter;
