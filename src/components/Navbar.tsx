@@ -4,17 +4,17 @@ const navLinks = {
     home: {
         icon: 'home',
         text: 'Home',
-        link: '/home',
+        link: '/Home',
     },
     discover: {
         icon: 'explore',
         text: 'Discover',
-        link: '/discover',
+        link: '/Discover',
     },
     answers: {
         icon: 'rate_review',
         text: 'Answer',
-        link: '/answer',
+        link: '/Answer',
     },
     notifications: {
         icon: 'notifications',
