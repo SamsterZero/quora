@@ -3,7 +3,7 @@ import Filter from "@/components/Filter";
 
 const buttons:string[] = [
     "All", "Stories", "Questons", "Spaces", "People",
-    "Comments", "Upvotes", "Announcements", "Earings",
+    "Comments", "Upvotes", "Announcements", "Earnings",
     "Subscription", "Email", "Your Content", "Your Profile"
 ];
 
