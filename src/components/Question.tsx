@@ -3,7 +3,7 @@ const Question = () => {
 
     return (
         <div
-            className="w-full shadow-lg dark:shadow-none p-3 md:rounded dark:bg-neutral-900 dark:border dark:border-neutral-800">
+            className="w-full shadow-lg p-3 md:rounded dark:bg-neutral-900 border dark:border-neutral-800">
             <div
                 className="flex items-center justify-between pb-2">
                 <h2>
@@ -38,7 +38,7 @@ const Question = () => {
                         <span>Pass</span>
                     </button>
                     <button type="button"
-                        className="bg-red-600 rounded-full px-5 py-1 text-sm text-white"
+                        className="bg-red-600 rounded-full px-4 py-1 text-sm text-white"
                     >
                         <span>
                             Follow

@@ -19,7 +19,7 @@ const navLinks = {
     notifications: {
         icon: 'notifications',
         text: 'Notifications',
-        link: '#',
+        link: '/Notifications',
     },
     profile: {
         icon: 'account_circle',
