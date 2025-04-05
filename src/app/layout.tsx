@@ -20,6 +20,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Quora",
   description: "A modern Quora clone built with Next.js, Tailwind CSS, and TypeScript.",
+  icons: {
+    icon: "/Q.ico",
+    shortcut: "/Q.ico",
+  },
 };
 
 const noticiaText = Noticia_Text({
