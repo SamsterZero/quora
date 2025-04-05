@@ -1,9 +1,30 @@
+import SpaceCard from "@/components/SpaceCard";
+
 const DiscoverPage = () => {
     return (
-        <div className="mx-auto sm:w-full md:max-w-3xl md:p-2 flex flex-col items-center gap-2 py-2">
+        <div className="w-full p-2">
             <h1 className="text-3xl font-bold">Discover</h1>
-            <p className="text-gray-500">Discover new content and topics.</p>
-            {/* Add your discover page content here */}
+                <p className="text-gray-500">Discover new content and topics.</p>
+            <div className="w-full mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center gap-2">
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+                <SpaceCard />
+            </div>
         </div>
     );
 }

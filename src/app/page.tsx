@@ -1,5 +1,4 @@
 import Post from "@/components/Post";
-import SearchBar from "@/components/SearchBar";
 
 export default function Default() {
 	return (

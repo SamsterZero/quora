@@ -4,9 +4,8 @@ import "./globals.css";
 import "./globalicons.css";
 import Navbar from "@/components/Navbar";
 import FAB from "@/components/FAB";
-import SpacesRail from "@/components/SpaceSection";
-import { ThemeProvider } from "next-themes";
 import SearchBar from "@/components/SearchBar";
+import Providers from "@/components/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,21 +38,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${noticiaText.variable} antialiased max-h-screen min-h-screen md:flex overflow-hidden`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
+        <Providers>
+          <Navbar/>
           <main className="mx-auto max-h-screen w-full flex justify-center overflow-y-auto font-[family-name:var(--font-geist-sans)]">
             <div className="mx-auto w-full flex flex-col items-center">
-              <SearchBar />
+              <SearchBar/>
               {children}
             </div>
           </main>
-          <FAB />
-        </ThemeProvider>
+          <FAB/>
+        </Providers>
       </body>
     </html>
   );

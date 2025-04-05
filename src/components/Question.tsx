@@ -28,8 +28,6 @@ const Question = () => {
                         </i>
                         <span>
                             Answer
-                            <span className="mx-1 text-gray-400">•</span>
-                            <span>0</span>
                         </span>
                     </button>
                     <button type="button"
