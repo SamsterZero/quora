@@ -9,7 +9,7 @@ const AnswerPage = () => {
                 <button className="border rounded px-3 py-1 border-neutral-700">Draft</button>
             </div>
             <div
-                className="mx-auto w-full md:px-2 grid grid-cols-1 items-center gap-2">
+                className="mx-auto w-full md:px-2 grid grid-cols-1 lg:grid-cols-2 items-center gap-2">
                 <Question />
                 <Question />
                 <Question />
