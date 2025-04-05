@@ -2,12 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const buttons = [
-    "All", "Stories", "Questons", "Spaces", "People",
-    "Comments", "Upvotes", "Announcements", "Earings",
-    "Subscription", "Email", "Your Content", "Your Profile"
-];
-
 type FilterProps = {
     buttons: string[];
 }
