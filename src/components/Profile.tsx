@@ -3,7 +3,7 @@
 import { signOut, useSession } from "next-auth/react";
 const Profile = () => {
 
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
 
     return (
         <div className="p-4 bg-red-100 dark:bg-neutral-900 rounded-lg shadow-md flex flex-col items-start gap-2">
