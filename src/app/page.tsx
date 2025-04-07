@@ -1,18 +1,12 @@
-import Post from "@/components/Post";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
-export default function Default() {
-	return (
-		<div className="mx-auto sm:w-full md:p-2 lg:max-w-3xl flex flex-col items-center gap-2 py-2">
-			<Post />
-			<Post />
-			<Post />
-			<Post />
-			<Post />
-			<Post />
-			<Post />
-			<Post />
-			<Post />
-			<Post />
-		</div>
-	);
+export default async function App () {
+
+	const session = await getServerSession(authOptions);
+
+	if (session) {
+		redirect("/Home");
+	}
 }

@@ -1,3 +1,6 @@
+"use client"
+
+import { useSession } from "next-auth/react";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = {
@@ -24,10 +27,12 @@ const navLinks = {
     profile: {
         icon: 'account_circle',
         text: 'Profile',
-        link: '#',
+        link: '/Profile',
     }
 }
 const Navbar = () => {
+    const { data: session } = useSession();
+
     return (
         <>
             <nav className="bg-red-100 dark:bg-neutral-900 flex justify-between items-center md:flex-col gap-2 px-3 md:px-0 md:py-3">
@@ -77,6 +82,7 @@ const Navbar = () => {
             <nav className="bg-red-100 dark:bg-neutral-900 md:hidden">
                 <div className="container flex justify-around items-center gap-5 mx-auto px-3">
                     {Object.entries(navLinks)
+                        .slice(0, 4)
                         .map(([key, { icon, link }]) => (
                             <a
                                 key={key}
@@ -88,6 +94,17 @@ const Navbar = () => {
                         ))
 
                     }
+
+                    <a
+                        className="flex justify-start items-center gap-2 p-2"
+                        href="/Profile"
+                    >
+                        <img
+                            src={session?.user?.image ?? ""}
+                            alt="Profile"
+                            className="w-7 h-7 rounded-full"
+                        />
+                    </a>
                 </div>
             </nav>
         </>

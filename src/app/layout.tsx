@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noticia_Text } from "next/font/google";
 import "./globals.css";
 import "./globalicons.css";
-import Navbar from "@/components/Navbar";
-import FAB from "@/components/FAB";
-import SearchBar from "@/components/SearchBar";
 import Providers from "@/components/Providers";
+import AppLayout from "@/components/AppLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,14 +41,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${noticiaText.variable} antialiased max-h-screen min-h-screen md:flex overflow-hidden`}
       >
         <Providers>
-          <Navbar/>
-          <main className="mx-auto max-h-screen w-full flex justify-center overflow-y-auto font-[family-name:var(--font-geist-sans)]">
-            <div className="mx-auto w-full flex flex-col items-center">
-              <SearchBar/>
-              {children}
-            </div>
-          </main>
-          <FAB/>
+          <AppLayout>
+            {children}
+          </AppLayout>
         </Providers>
       </body>
     </html>
