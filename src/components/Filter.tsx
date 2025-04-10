@@ -1,27 +1,36 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+interface Filter {
+    text: string
+    link?: string
+}
+
 type FilterProps = {
-    buttons: string[];
+    filters: Filter[];
 }
 
 const Filter = (
-    {buttons}: FilterProps
+    { filters }: FilterProps
 ) => {
-    const [active, setActive] = useState(buttons[0]);
+    const [active, setActive] = useState<Filter>(filters[0]);
 
     const refs = useRef<Record<string, HTMLButtonElement | null>>({});
 
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-    const handleClick = (label: string) => {
-        setActive(label);
-        refs.current[label]?.scrollIntoView({
+    const router = useRouter();
+
+    const handleClick = (filter: Filter) => {
+        setActive(filter);
+        refs.current[filter.text]?.scrollIntoView({
             behavior: "smooth",
             block: "nearest",
             inline: "start"
         });
+        filter.link && router.push(filter.link);
     };
 
     useEffect(() => {
@@ -42,17 +51,18 @@ const Filter = (
             className="flex gap-2 overflow-x-scroll scrollbar-hide scroll-smooth touch-x-pan"
             ref={scrollContainerRef}
         >
-            {buttons.map((label) => (
+            {filters.map((filter) => (
                 <button
-                    key={label}
-                    ref={(el) => { refs.current[label] = el; }}
-                    onClick={() => handleClick(label)}
-                    className={`rounded px-3 py-1 text-nowrap shadows-lg ${active === label
-                        ? "bg-red-600 text-white"
-                        : "bg-red-100 dark:bg-neutral-800"
+                    key={filter.text}
+                    ref={(el) => { refs.current[filter.text] = el; }}
+                    onClick={() => handleClick(filter)}
+                    className={`rounded px-3 py-1 text-nowrap shadows-lg
+                        ${active.text === filter.text
+                            ? "bg-red-600 text-white"
+                            : "bg-red-100 dark:bg-neutral-800"
                         }`}
                 >
-                    {label}
+                    {filter.text}
                 </button>
             ))}
         </div>

@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Noticia_Text } from "next/font/google";
 import "./globals.css";
 import "./globalicons.css";
 import Providers from "@/components/Providers";
-import AppLayout from "@/components/AppLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,8 +18,8 @@ export const metadata: Metadata = {
   title: "Quora",
   description: "A modern Quora clone built with Next.js, Tailwind CSS, and TypeScript.",
   icons: {
-    icon: "/Q.ico",
-    shortcut: "/Q.ico",
+    icon: "favicon.ico",
+    shortcut: "/favicon.ico",
   },
 };
 
@@ -38,12 +37,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${noticiaText.variable} antialiased max-h-screen min-h-screen md:flex overflow-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${noticiaText.variable} antialiased max-h-screen min-h-screen overflow-hidden`}
       >
         <Providers>
-          <AppLayout>
-            {children}
-          </AppLayout>
+          {children}
         </Providers>
       </body>
     </html>

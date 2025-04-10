@@ -2,11 +2,13 @@ import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-export default async function App () {
+export default async function App() {
 
 	const session = await getServerSession(authOptions);
 
 	if (session) {
 		redirect("/Home");
+	} else {
+		redirect("/login");
 	}
 }

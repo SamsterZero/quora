@@ -1,55 +1,24 @@
-"use client"
-
-import { useSession } from "next-auth/react";
 import ThemeToggle from "./ThemeToggle";
+import ProfilePhoto from "./ProfilePhoto";
+import { navLinks } from "@/lib/constants";
+import Navlink from "./NavLink";
+import Link from "next/link";
 
-const navLinks = {
-    home: {
-        icon: 'home',
-        text: 'Home',
-        link: '/Home',
-    },
-    discover: {
-        icon: 'explore',
-        text: 'Discover',
-        link: '/Discover',
-    },
-    answers: {
-        icon: 'rate_review',
-        text: 'Answer',
-        link: '/Answer',
-    },
-    notifications: {
-        icon: 'notifications',
-        text: 'Notifications',
-        link: '/Notifications',
-    },
-    profile: {
-        icon: 'account_circle',
-        text: 'Profile',
-        link: '/Profile',
-    }
-}
 const Navbar = () => {
-    const { data: session } = useSession();
 
     return (
         <>
-            <nav className="bg-red-100 dark:bg-neutral-900 flex justify-between items-center md:flex-col gap-2 px-3 md:px-0 md:py-3">
+            <nav className="bg-red-100 dark:bg-neutral-900 flex justify-between items-center md:flex-col gap-2 px-3 md:px-0 md:py-3 md:min-h-screen">
                 {/* <div className=""> */}
                 <div className="md:w-full flex items-center md:flex-col gap-4 py-2">
                     <h4 className="text-3xl font-[family-name:var(--font-noticia-text)] text-red-600 font-bold md:hidden md:px-2 xl:inline">Quora</h4>
-                    <h4 className="text-3xl font-[family-name:var(--font-noticia-text)] text-red-600 font-bold hidden md:block md:px-2 xl:hidden">Q</h4>
+                    <h4 className="text-3xl font-[family-name:var(--font-noticia-text)] text-red-600 font-bold hidden md:inline md:px-2 xl:hidden">Q</h4>
 
                     <div className="hidden md:flex flex-col gap-5 justify-center items-center md:w-full xl:items-start xl:p-4">
                         {Object.entries(navLinks)
                             .slice(0, 3)
                             .map(([key, { icon, text, link }]) => (
-                                <a key={key} className="flex justify-start items-center gap-2"
-                                    href={link}>
-                                    <i className="material-symbols-outlined">{icon}</i>
-                                    <span className="hidden xl:block">{text}</span>
-                                </a>
+                                <Navlink key={key} text={text} icon={icon} link={link} />
                             ))
                         }
                     </div>
@@ -62,16 +31,15 @@ const Navbar = () => {
                     {Object.entries(navLinks)
                         .slice(3, 5)
                         .map(([key, { icon, link }]) => (
-                            <a
-                                key={key}
-                                href={link}
-                                type="button"
-                                className="material-symbols-outlined text-light hidden md:inline"
-                            >
-                                <i className="material-symbols-outlined">{icon}</i>
-                            </a>
+                            <Navlink key={key} icon={icon} link={link} aClass="hidden md:block" />
                         ))
                     }
+                    <a
+                        href="/Profile"
+                        className="material-symbols-outlined text-light hidden md:inline"
+                    >
+                        <ProfilePhoto widthClass="w-8" />
+                    </a>
                     <button type="button" className="material-symbols-outlined text-danger md:hidden">
                         search
                     </button>
@@ -84,27 +52,16 @@ const Navbar = () => {
                     {Object.entries(navLinks)
                         .slice(0, 4)
                         .map(([key, { icon, link }]) => (
-                            <a
-                                key={key}
-                                className="flex justify-start items-center gap-2 p-2"
-                                href={link}
-                            >
-                                <i className="material-symbols-outlined">{icon}</i>
-                            </a>
+                            <Navlink key={key} icon={icon} link={link} />
                         ))
 
                     }
-
-                    <a
+                    <Link
                         className="flex justify-start items-center gap-2 p-2"
                         href="/Profile"
                     >
-                        <img
-                            src={session?.user?.image ?? ""}
-                            alt="Profile"
-                            className="w-7 h-7 rounded-full"
-                        />
-                    </a>
+                        <ProfilePhoto widthClass="w-6" />
+                    </Link>
                 </div>
             </nav>
         </>

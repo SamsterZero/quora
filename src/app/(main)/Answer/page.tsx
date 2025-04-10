@@ -5,15 +5,18 @@ export const metadata = {
     title: "Quora - Answer",
   };
 
-const buttons:string[] = [
-    "For you", "Request", "Draft"
-];
+  const buttons: Filter[] = [
+    { text: "For you" },
+    { text: "Request" },
+    { text: "Draft" },
+  ];
+  
 
 const AnswerPage = () => {
     return (
         <>
             <div className="flex gap-2 w-full p-2 sticky top-0 z-50 bg-white dark:bg-black">
-                <Filter buttons = {buttons} />
+                <Filter filters = {buttons} />
             </div>
             <div
                 className="mx-auto w-full md:px-2 grid grid-cols-1 lg:grid-cols-2 items-center gap-2">

@@ -8,16 +8,15 @@ const ThemeToggle = () => {
 
     useEffect(() => setIsMounted(true), []);
 
-    if (!isMounted || !resolvedTheme) {
-        return <div className="p-2 border rounded-md bg-transparent w-[124px] h-[40px]" aria-hidden="true" />;
-    }
+    const icon = resolvedTheme === "dark" ? "light_mode" : "dark_mode";
+    const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
 
     return (
-        <button onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
+        <button onClick={() => setTheme(nextTheme)}
             className="p-2 rounded-md material-symbols-outlined h-fit text-gray-700 dark:text-yellow-500"
-            aria-label={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
+            aria-label={`Switch to ${nextTheme} mode`}
         >
-            {resolvedTheme === "dark" ? "light_mode" : "dark_mode"}
+            {isMounted ? icon: "dark_mode"}
         </button>
     );
 }
