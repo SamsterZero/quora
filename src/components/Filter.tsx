@@ -54,7 +54,9 @@ const Filter = (
             {filters.map((filter) => (
                 <button
                     key={filter.text}
-                    ref={(el) => { refs.current[filter.text] = el; }}
+                    ref={(el) => {
+                        refs.current[filter.text] = el;
+                    }}
                     onClick={() => handleClick(filter)}
                     className={`rounded px-3 py-1 text-nowrap shadows-lg
                         ${active.text === filter.text
