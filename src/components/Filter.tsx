@@ -30,7 +30,9 @@ const Filter = (
             block: "nearest",
             inline: "start"
         });
-        filter.link && router.push(filter.link);
+        if (filter.link) {
+            router.push(filter.link);
+        }
     };
 
     useEffect(() => {
