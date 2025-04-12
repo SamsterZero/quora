@@ -21,9 +21,8 @@ const FAB = () => {
     }, []);
 
     const handleClick = () => {
-        isPC
-            ? router.push("/ask-question-modal", { scroll: false })
-            : router.push("/AskQuestion")
+        if (isPC) router.push("/ask-question-modal", { scroll: false });
+        else router.push("/AskQuestion");
     }
 
     return (
