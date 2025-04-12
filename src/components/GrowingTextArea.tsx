@@ -1,9 +1,13 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 
-const MAX_CHARS = 500;
+interface Class {
+  limit: number
+  className?: string
+  placeholder?: string
+}
 
-const GrowingTextArea = () => {
+const GrowingTextArea = ({ limit, className, placeholder }: Class) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [charCount, setCharCount] = useState(0);
 
@@ -29,13 +33,13 @@ const GrowingTextArea = () => {
       <textarea
         ref={textareaRef}
         rows={1}
-        maxLength={MAX_CHARS}
+        maxLength={limit}
         onInput={handleInput}
-        className="border-b border-gray-400 dark:bg-inherit focus:outline-none focus:border-blue-500 w-full text-2xl p-2 resize-none overflow-hidden"
-        placeholder="Ask whatever you feel like asking"
+        className={className}
+        placeholder={placeholder}
       />
       <div className="text-right text-sm text-gray-500 mt-1">
-        {MAX_CHARS - charCount} characters remaining
+        {limit - charCount} characters remaining
       </div>
     </div>
   );

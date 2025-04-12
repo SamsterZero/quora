@@ -3,6 +3,7 @@ import ProfilePhoto from "./ProfilePhoto";
 import { navLinks } from "@/lib/constants";
 import Navlink from "./NavLink";
 import Link from "next/link";
+import MobileSearchToggle from "./MoileSearchToggle";
 
 const Navbar = () => {
 
@@ -40,9 +41,7 @@ const Navbar = () => {
                     >
                         <ProfilePhoto widthClass="w-8" />
                     </a>
-                    <button type="button" className="material-symbols-outlined text-danger md:hidden">
-                        search
-                    </button>
+                    <MobileSearchToggle />
                 </div>
                 {/* </div> */}
             </nav>

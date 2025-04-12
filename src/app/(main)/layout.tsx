@@ -4,7 +4,7 @@ import SearchBar from "@/components/SearchBar";
 import React from "react";
 
 const MainLayout = async(
-    { children, }: Readonly<{ children: React.ReactElement }>
+    { children, }: Readonly<{ children: React.ReactNode }>
 ) => {
 
     return (

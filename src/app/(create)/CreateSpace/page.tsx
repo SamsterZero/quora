@@ -1,9 +1,8 @@
+import CreateSpace from "@/components/CreateSpace";
 
 const CreateSpacePage = () =>{
     return(
-        <div>
-            Create Spaces
-        </div>
+        <CreateSpace/>
     );
 }
 

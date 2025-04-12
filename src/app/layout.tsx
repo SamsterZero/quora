@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Noticia_Text } from "next/font/google";
 import "./globals.css";
 import "./globalicons.css";
 import Providers from "@/components/Providers";
+import { ReactNode } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,18 +30,23 @@ const noticiaText = Noticia_Text({
   weight: "400"
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout(
+  { children, modal }: Readonly<
+    {
+      children: ReactNode;
+      modal: ReactNode;
+    }
+  >) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${noticiaText.variable} antialiased max-h-screen min-h-screen overflow-hidden`}
       >
         <Providers>
+
+          {modal}
           {children}
+
         </Providers>
       </body>
     </html>
